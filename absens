@@ -1,0 +1,51 @@
+                   List of relations
+ Schema |          Name          |   Type   |   Owner   
+--------+------------------------+----------+-----------
+ public | absens                 | table    | homestead
+ public | absens_id_seq          | sequence | homestead
+ public | jams                   | table    | homestead
+ public | jams_id_seq            | sequence | homestead
+ public | mahasiswa_ruang        | table    | homestead
+ public | mahasiswa_ruang_id_seq | sequence | homestead
+ public | mahasiswas             | table    | homestead
+ public | mahasiswas_id_seq      | sequence | homestead
+ public | migrations             | table    | homestead
+ public | migrations_id_seq      | sequence | homestead
+ public | password_resets        | table    | homestead
+ public | ruangs                 | table    | homestead
+ public | ruangs_id_seq          | sequence | homestead
+ public | users                  | table    | homestead
+ public | users_id_seq           | sequence | homestead
+(15 rows)
+
+                                         Table "public.users"
+     Column     |              Type              |                     Modifiers                      
+----------------+--------------------------------+----------------------------------------------------
+ id             | integer                        | not null default nextval('users_id_seq'::regclass)
+ name           | character varying(255)         | not null
+ email          | character varying(255)         | not null
+ password       | character varying(255)         | not null
+ remember_token | character varying(100)         | 
+ created_at     | timestamp(0) without time zone | 
+ updated_at     | timestamp(0) without time zone | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "users_email_unique" UNIQUE CONSTRAINT, btree (email)
+Referenced by:
+    TABLE "mahasiswas" CONSTRAINT "mahasiswas_user_id_foreign" FOREIGN KEY (user_id) REFERENCES users(id)
+
+                                  List of databases
+   Name    |   Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-----------+-----------+----------+-------------+-------------+-----------------------
+ absen     | vagrant   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ absensi   | vagrant   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ homestead | homestead | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ perpus    | homestead | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres  | postgres  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0 | postgres  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |           |          |             |             | postgres=CTc/postgres
+ template1 | postgres  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |           |          |             |             | postgres=CTc/postgres
+ vagrant   | postgres  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+(8 rows)
+
